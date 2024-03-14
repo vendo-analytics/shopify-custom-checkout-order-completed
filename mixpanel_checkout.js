@@ -32,8 +32,8 @@ mixpanel.identify("{{order.customer.id}}");
 
 mixpanel.people.set({
     "$email": "{{order.customer.email}}",
-    "firstName": "{{order.customer.first_name}}",
-    "lastName": "{{order.customer.last_name}}", 
+    "$first_name": "{{order.customer.first_name}}",
+    "$last_name": "{{order.customer.last_name}}", 
  });
 
 console.log('email',  "{{order.customer.email}}"); 
