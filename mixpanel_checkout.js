@@ -39,6 +39,7 @@ mixpanel.people.set({
 console.log('email',  "{{order.customer.email}}"); 
 console.log('first name',  "{{order.customer.first_name}}"); 
 console.log('last name', "{{order.customer.last_name}}"); 
+console.log('Shopify ID', "{{order.customer.id}}"); 
 
 
 // Checkout completed event
