@@ -68,9 +68,7 @@ mixpanel.track("Checkout Completed", {
 
 });
 
-
-=
-  window.addEventListener('load', function() {
+window.addEventListener('load', function() {
     // Ensure window.Shopify is available before trying to access its properties
     if (window.Shopflo && window.Shopflo.customer.order.id) {    
     // Alias anonymous user ID with the Shopify ID. This is only required in Original ID merge.
