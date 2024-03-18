@@ -68,22 +68,24 @@ mixpanel.track("Checkout Completed", {
 
 });
 
-window.addEventListener('load', function() {
-    // Ensure window.Shopify is available before trying to access its properties
-    if (window.Shopflo && window.Shopflo.order.customer.id) {    
-    // Alias anonymous user ID with the Shopify ID. This is only required in Original ID merge.
-    console.log("shopify ID",  window.Shopflo.order.customer.id);
-    mixpanel.alias(shopify_y, window.Shopflo.order.customer.id);
-    
-    // Identify user with the Shopify customer ID
-    mixpanel.identify(window.Shopflo.order.customer.id);
+
+  var checkShopflo = setInterval(function() {
+    if (window.Shopflo.order.customer.id) {
+      console.log(window.Shopflo.order.customer.id);
+   
+     // Alias anonymous user ID with the Shopify ID. This is only required in Original ID merge.
+      console.log("shopify ID",  window.Shopflo.order.customer.id);
+      mixpanel.alias(shopify_y, window.Shopflo.order.customer.id);
+      
+      clearInterval(checkShopflo); // Clear interval once the object is found
     } else {
-      console.log("window.Shopflo or window.Shopflo.customer.order.id is not available.");
+      console.log("Waiting for window.Shopflo.order.customer.id");
     }
-  });
+  }, 1000); // Check every 1000 milliseconds (1 second)
 
 
 </script>
+
 
 {% endif %}
 <!-- Mixpanel Custom Checkout Code End -->
