@@ -70,13 +70,13 @@ mixpanel.track("Checkout Completed", {
 
 window.addEventListener('load', function() {
     // Ensure window.Shopify is available before trying to access its properties
-    if (window.Shopflo && window.Shopflo.customer.order.id) {    
+    if (window.Shopflo && window.Shopflo.order.customer.id) {    
     // Alias anonymous user ID with the Shopify ID. This is only required in Original ID merge.
-    console.log("shopify ID",  window.Shopflo.customer.order.id);
-    mixpanel.alias(shopify_y, window.Shopflo.customer.order.id);
+    console.log("shopify ID",  window.Shopflo.order.customer.id);
+    mixpanel.alias(shopify_y, window.Shopflo.order.customer.id);
     
     // Identify user with the Shopify customer ID
-    mixpanel.identify("{{order.customer.id}}");
+    mixpanel.identify(window.Shopflo.order.customer.id);
     } else {
       console.log("window.Shopflo or window.Shopflo.customer.order.id is not available.");
     }
