@@ -39,7 +39,11 @@
 
       // Identify user with the Shopify customer ID
       mixpanel.identify("{{order.customer.id}}");
-
+      mixpanel.people.set({
+          "$email": "{{order.customer.email}}",
+          "$first_name": "{{order.customer.first_name}}",
+          "$last_name": "{{order.customer.last_name}}", 
+       });
       // Checkout completed event
       mixpanel.track("Checkout Completed", {
        "distinct_id": shopify_y,
