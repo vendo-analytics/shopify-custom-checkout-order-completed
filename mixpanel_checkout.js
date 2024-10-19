@@ -30,7 +30,7 @@
 
 
       // Mixpanel Initialise (replace token with the project token)
-      mixpanel.init('9de6e7f9cca7ae5140d9beeeb298174b', {
+      mixpanel.init('xxx', {
         debug: true
       });
 
@@ -47,7 +47,8 @@
       // Checkout completed event
       mixpanel.track("Checkout Completed", {
        "distinct_id": shopify_y,
-       "$source": "Vendo - Shopify Data Intelligence", 
+       "$device_id": shopify_y,
+       "$source": "Vendo - Shopify App / Custom Checkout", 
        "$current_url": "{{order.order_status_url}}",
        "currency": "{{order.shop.currency }}",
        "cart_subtotal_amount": {{order.subtotal_price | divided_by: 100.0}},
