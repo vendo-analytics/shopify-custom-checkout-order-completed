@@ -27,7 +27,8 @@ mixpanel.init('REPLACE_YOUR_TOKEN',{
 // Checkout completed event
 mixpanel.track("Checkout Completed", {
  "distinct_id": shopify_y,
- "$source": "Vendo - Shopify Data Intelligence", 
+ "$device_id": shopify_y,
+ "$source": "Vendo - Shopify App / Custom Checkout", 
  "$current_url": "{{order.order_status_url}}",
  "currency": "{{order.shop.currency }}",
  "cart_subtotal_amount": {{order.subtotal_price | divided_by: 100.0}},
