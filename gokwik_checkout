@@ -37,8 +37,8 @@ for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".
       mixpanel.alias(shopify_y, "{{order.customer.id}}");
 
       // Identify user with the Shopify customer ID
-      mixpanel.identify("{{order.customer.id}}");
-      mixpanel.people.set({
+      mixpanel.identify(shopify_y, "{{order.customer.id}}");
+      mixpanel.people.set(shopify_y, {
           "$email": "{{order.customer.email}}",
           "$first_name": "{{order.customer.first_name}}",
           "$last_name": "{{order.customer.last_name}}", 
